@@ -2,7 +2,9 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeter().greeting()
+    let greet = MainViewModel().greeting()
+// 	let greeter = Greeter().greeting()
+// 	let greet = "\(greeter) \(vm)"
 
 	var body: some View {
 		Text(greet)
