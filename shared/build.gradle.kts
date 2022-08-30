@@ -33,7 +33,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
                 api("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
 //                api("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
 //                implementation("io.ktor:ktor-client-core:${Versions.ktorVersion}")

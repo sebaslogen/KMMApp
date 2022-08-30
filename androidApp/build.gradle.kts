@@ -3,6 +3,11 @@ plugins {
     kotlin("android")
 }
 
+// Dependencies versions
+val composeCompiler = "1.3.0"
+val composeUI = "1.2.1"
+val activityCompose = "1.5.1"
+
 android {
     compileSdk = 32
     defaultConfig {
@@ -20,12 +25,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-//    buildFeatures { // Enables Jetpack Compose for this module
-//        compose = true
-//    }
-//    composeOptions {
-//        kotlinCompilerExtensionVersion = "1.3.0"
-//    }
+    buildFeatures { // Enables Jetpack Compose for this module
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = composeCompiler
+    }
 }
 
 dependencies {
@@ -33,4 +38,11 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.compose.compiler:compiler:$composeCompiler")
+    implementation("androidx.compose.foundation:foundation:$composeUI")
+    implementation("androidx.compose.material:material:$composeUI")
+    implementation("androidx.compose.runtime:runtime:$composeUI")
+    implementation("androidx.compose.ui:ui:$composeUI")
+    implementation("androidx.activity:activity-compose:$activityCompose")
 }
