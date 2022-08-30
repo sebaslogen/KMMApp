@@ -24,4 +24,6 @@ class MainViewModel : ViewModel() {
         counter = 55
         return "Hola, ${Platform().platform}! $counter"
     }
+
+    fun greetingBasicTest() = "Hola basic test"
 }

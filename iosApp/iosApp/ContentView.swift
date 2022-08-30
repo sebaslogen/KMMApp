@@ -1,14 +1,16 @@
 import SwiftUI
-import MultiPlatformLibrary
-import mokoMvvmFlowSwiftUI
+import shared
+// import MultiPlatformLibrary
+// import mokoMvvmFlowSwiftUI
 import Combine
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel: MainViewModel = MainViewModel()
-    
+//     @ObservedObject var viewModel: MainViewModel = MainViewModel()
+    let greet: String = MainViewModel().greetingBasicTest()
+
 	var body: some View {
-		Text("Hola test")
+		Text(greet)
 	}
 }
 

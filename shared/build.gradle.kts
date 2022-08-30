@@ -2,7 +2,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
-    id("dev.icerock.moko.kswift")
+//    id("dev.icerock.moko.kswift")
 }
 
 version = "1.0"
@@ -26,7 +26,7 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
 
         framework {
-            baseName = "MultiPlatformLibrary"
+            baseName = "shared"
             export("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
             export("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
         }
@@ -93,6 +93,6 @@ android {
     }
 }
 
-kswift {
-    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
-}
+//kswift {
+//    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
+//}
