@@ -2,11 +2,12 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    id("dev.icerock.moko.kswift")
 }
 
 version = "1.0"
 object Versions {
-    const val mokoVersion = "0.13.1"
+    const val mokoVersion = "0.13.0"
     const val ktorVersion = "2.0.3"
     const val kotlinXDateTimeVersion = "0.4.0"
     const val koin = "3.2.0"
@@ -23,10 +24,11 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         ios.deploymentTarget = "14.1"
         podfile = project.file("../iosApp/Podfile")
+
         framework {
-            baseName = "shared"
+            baseName = "MultiPlatformLibrary"
             export("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
-//            export("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
+            export("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
         }
     }
     
@@ -35,7 +37,7 @@ kotlin {
             dependencies {
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
                 api("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
-//                api("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
+                api("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
 //                implementation("io.ktor:ktor-client-core:${Versions.ktorVersion}")
 //                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0-RC")
 //                implementation("org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinXDateTimeVersion}")
@@ -51,8 +53,7 @@ kotlin {
         val androidMain by getting {
             dependsOn(commonMain)
             dependencies {
-//                api("dev.icerock.moko:mvvm-flow-compose:${Versions.mokoVersion}")
-//                api("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
+                api("dev.icerock.moko:mvvm-flow-compose:${Versions.mokoVersion}")
                 api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 //                implementation("io.ktor:ktor-client-okhttp:${Versions.ktorVersion}")
             }
@@ -90,4 +91,8 @@ android {
         minSdk = 23
         targetSdk = 32
     }
+}
+
+kswift {
+    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
 }

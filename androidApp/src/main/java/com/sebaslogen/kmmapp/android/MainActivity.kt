@@ -2,47 +2,51 @@ package com.sebaslogen.kmmapp.android
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import com.sebaslogen.kmmapp.Greeter
-import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sebaslogen.kmmapp.MainViewModel
-
-fun greet(): String {
-    return Greeter().greeting()
-}
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val vm = MainViewModel()
 
         setContent {
             MaterialTheme {
-//                Box(modifier = Modifier.fillMaxSize()) {
-
-                Text(modifier = Modifier.fillMaxSize().wrapContentHeight(),
-                    textAlign = TextAlign.Center,
-                    text = "${greet()} ${vm.id}")
-//                }
+                MainScreen()
             }
         }
+    }
 
-//        setContentView(R.layout.activity_main)
-//
-//
-//        val tv: TextView = findViewById(R.id.text_view)
-//        tv.text = "${greet()} ${vm.id}"
+    @Composable
+    private fun MainScreen() {
+        val viewModel: MainViewModel = viewModel()
+        LaunchedEffect(Unit) {
+            viewModel.initialize()
+        }
+        val textState = viewModel.data.collectAsState()
+        title(textState)
+    }
+
+    @Composable
+    private fun title(textState: State<String>) {
+        Text(
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentHeight(),
+            textAlign = TextAlign.Center,
+            text = textState.value
+        )
     }
 }

@@ -7,6 +7,7 @@ plugins {
 val composeCompiler = "1.3.0"
 val composeUI = "1.2.1"
 val activityCompose = "1.5.1"
+val viewModelCompose = "2.5.1"
 
 android {
     compileSdk = 32
@@ -44,5 +45,7 @@ dependencies {
     implementation("androidx.compose.material:material:$composeUI")
     implementation("androidx.compose.runtime:runtime:$composeUI")
     implementation("androidx.compose.ui:ui:$composeUI")
+    implementation("androidx.compose.ui:ui-tooling:$composeUI")
     implementation("androidx.activity:activity-compose:$activityCompose")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$viewModelCompose")
 }

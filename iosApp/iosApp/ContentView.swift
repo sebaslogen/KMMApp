@@ -1,17 +1,14 @@
 import SwiftUI
-import shared
+import MultiPlatformLibrary
+import mokoMvvmFlowSwiftUI
+import Combine
 
 struct ContentView: View {
-    let vmGreeter: String = MainViewModel().greeting()
- 	let greeter: String = Greeter().greeting()
-    let greet: String
     
-    init() {
-        self.greet = "\(greeter) \(vmGreeter)"
-    }
-
+    @ObservedObject var viewModel: MainViewModel = MainViewModel()
+    
 	var body: some View {
-		Text(greet)
+		Text("Hola test")
 	}
 }
 
