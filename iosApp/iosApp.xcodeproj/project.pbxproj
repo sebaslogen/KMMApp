@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		45485271CC01819D85F1513F /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B89E40F5B4C8F1742F00948 /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		B71AB7F628E784A2008DBAFE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AB7F528E784A1008DBAFE /* Color.swift */; };
+		B71AB7F828E78564008DBAFE /* mokoMvvmFlowSwiftUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71AB7F728E78563008DBAFE /* mokoMvvmFlowSwiftUI.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B71AB7F528E784A1008DBAFE /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B71AB7F728E78563008DBAFE /* mokoMvvmFlowSwiftUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = mokoMvvmFlowSwiftUI.xcframework; path = Pods/mokoMvvmFlowSwiftUI/mokoMvvmFlowSwiftUI.xcframework; sourceTree = "<group>"; };
 		BE5883D8DA180D411D31D13D /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C8573DECEF27D948CC56E552 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45485271CC01819D85F1513F /* Pods_iosApp.framework in Frameworks */,
+				B71AB7F828E78564008DBAFE /* mokoMvvmFlowSwiftUI.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +54,7 @@
 		3F0920CB4D2572512282A230 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B71AB7F728E78563008DBAFE /* mokoMvvmFlowSwiftUI.xcframework */,
 				5B89E40F5B4C8F1742F00948 /* Pods_iosApp.framework */,
 			);
 			name = Frameworks;
@@ -75,6 +81,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				B71AB7F528E784A1008DBAFE /* Color.swift */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -90,7 +97,6 @@
 				BE5883D8DA180D411D31D13D /* Pods-iosApp.debug.xcconfig */,
 				C8573DECEF27D948CC56E552 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,6 +216,7 @@
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				B71AB7F628E784A2008DBAFE /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
