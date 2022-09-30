@@ -7,6 +7,7 @@ plugins {
 
 version = "1.0"
 object Versions {
+    const val kermitVersion = "1.1.3"
     const val mokoVersion = "0.13.0"
     const val ktorVersion = "2.0.3"
     const val kotlinXDateTimeVersion = "0.4.0"
@@ -35,6 +36,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                api(kotlin("stdlib-common"))
+                api("co.touchlab:kermit:${Versions.kermitVersion}")
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
                 api("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
                 api("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")

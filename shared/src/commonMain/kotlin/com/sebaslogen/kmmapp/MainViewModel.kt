@@ -1,5 +1,6 @@
 package com.sebaslogen.kmmapp
 
+import co.touchlab.kermit.Logger
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,6 +13,7 @@ class MainViewModel : ViewModel() {
     val data: StateFlow<String> = _data
 
     fun initialize() {
+        Logger.d { "MainViewModel Init" }
         viewModelScope.launch {
             val greeting = createGreeting()
             _data.value = greeting
