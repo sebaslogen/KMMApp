@@ -4,7 +4,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
-//    id("dev.icerock.moko.kswift")
+    id("dev.icerock.moko.kswift")
 }
 
 version = "1.0"
@@ -36,23 +36,6 @@ kotlin {
             export("dev.icerock.moko:mvvm-state:${Versions.mokoVersion}")
         }
     }
-
-//    val xcf = XCFramework("MultiPlatformLibrary")
-//    listOf(
-//        iosX64(),
-//        iosArm64(),
-//        iosSimulatorArm64()
-//    ).forEach { target ->
-//        target.binaries.framework {
-//            baseName = "MultiPlatformLibrary"
-//
-//            xcf.add(this)
-//
-//            export("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
-//            export("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
-//            export("dev.icerock.moko:mvvm-state:${Versions.mokoVersion}")
-//        }
-//    }
     
     sourceSets {
         val commonMain by getting {
@@ -120,7 +103,7 @@ android {
     }
 }
 
-//kswift {
-//    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
-//    install(dev.icerock.moko.kswift.plugin.feature.PlatformExtensionFunctionsFeature)
-//}
+kswift {
+    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
+    install(dev.icerock.moko.kswift.plugin.feature.PlatformExtensionFunctionsFeature)
+}
