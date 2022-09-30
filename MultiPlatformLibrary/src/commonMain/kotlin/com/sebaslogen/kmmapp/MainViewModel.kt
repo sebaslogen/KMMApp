@@ -22,12 +22,8 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    suspend fun createGreeting(): String {
-        var counter = 0
+    private suspend fun createGreeting(): String {
         delay(200)
-        counter = 55
-        return "Hola, ${Platform().platform}! $counter"
+        return "Hola, ${Platform().platform}! Delayed"
     }
-
-    fun greetingBasicTest() = "Hola basic test"
 }
