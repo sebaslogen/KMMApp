@@ -4,12 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MultiPlatformLibrary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iosApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>shared.xcscheme</key>
+		<key>mokoMvvmFlowSwiftUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

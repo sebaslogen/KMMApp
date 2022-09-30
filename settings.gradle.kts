@@ -8,4 +8,4 @@ pluginManagement {
 
 rootProject.name = "KMMApp"
 include(":androidApp")
-include(":shared")
+include(":MultiPlatformLibrary")

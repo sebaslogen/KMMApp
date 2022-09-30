@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
@@ -8,7 +10,7 @@ plugins {
 version = "1.0"
 object Versions {
     const val kermitVersion = "1.1.3"
-    const val mokoVersion = "0.13.0"
+    const val mokoVersion = "0.14.0"
     const val ktorVersion = "2.0.3"
     const val kotlinXDateTimeVersion = "0.4.0"
     const val koin = "3.2.0"
@@ -27,11 +29,30 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
 
         framework {
-            baseName = "shared"
+            baseName = "MultiPlatformLibrary"
+            isStatic = false
             export("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
             export("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
+            export("dev.icerock.moko:mvvm-state:${Versions.mokoVersion}")
         }
     }
+
+//    val xcf = XCFramework("MultiPlatformLibrary")
+//    listOf(
+//        iosX64(),
+//        iosArm64(),
+//        iosSimulatorArm64()
+//    ).forEach { target ->
+//        target.binaries.framework {
+//            baseName = "MultiPlatformLibrary"
+//
+//            xcf.add(this)
+//
+//            export("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
+//            export("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
+//            export("dev.icerock.moko:mvvm-state:${Versions.mokoVersion}")
+//        }
+//    }
     
     sourceSets {
         val commonMain by getting {
@@ -39,8 +60,11 @@ kotlin {
                 api(kotlin("stdlib-common"))
                 api("co.touchlab:kermit:${Versions.kermitVersion}")
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                api("dev.icerock.moko:resources:${Versions.mokoVersion}")
                 api("dev.icerock.moko:mvvm-core:${Versions.mokoVersion}")
                 api("dev.icerock.moko:mvvm-flow:${Versions.mokoVersion}")
+                api("dev.icerock.moko:mvvm-flow-resources:${Versions.mokoVersion}")
+                api("dev.icerock.moko:mvvm-state:${Versions.mokoVersion}")
 //                implementation("io.ktor:ktor-client-core:${Versions.ktorVersion}")
 //                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0-RC")
 //                implementation("org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinXDateTimeVersion}")
@@ -88,14 +112,15 @@ kotlin {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 23
-        targetSdk = 32
+        targetSdk = 33
     }
 }
 
 //kswift {
 //    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
+//    install(dev.icerock.moko.kswift.plugin.feature.PlatformExtensionFunctionsFeature)
 //}
